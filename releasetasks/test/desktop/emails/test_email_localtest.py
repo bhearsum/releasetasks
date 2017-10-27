@@ -110,7 +110,7 @@ class TestEmailLocaltest(unittest.TestCase):
 
     def generate_task_requires_validator(self):
         requires_sorted = sorted(
-            get_task_by_name(self.graph, "release-foo_firefox_{}_update_verify_foo_{}".format(platform, i))["taskId"]
+            get_task_by_name(self.graph, "{}_foo_update_verify_{}".format(platform, i))["taskId"]
             for i in range(1, 13)
             for platform in ('win32', 'win64', 'macosx64')
         )

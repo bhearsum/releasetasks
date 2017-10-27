@@ -30,9 +30,10 @@
 
         payload:
             maxRunTime: 7200
-            image: callek/update-test-runner2
+            image: mozbhearsum/update-test-runner2
             command:
-                - /bin/bash
+                # commented out because bhearsum's image has a funky command. uncomment me when fixed!
+                # - /bin/bash
                 - -c
                 - hg clone https://hg.mozilla.org/{{ build_tools_repo_path }} tools && cd tools && hg up -r $TAG && cd .. && /tools/scripts/release/updates/chunked-verify.sh UNUSED UNUSED $TOTAL_CHUNKS $THIS_CHUNK
             onExitStatus:

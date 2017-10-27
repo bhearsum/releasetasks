@@ -142,11 +142,7 @@ tasks:
 
     {% if update_verify_enabled is defined and update_verify_enabled %}
         {% macro updateVerify_task(platform) %}
-            {% if platform in ["linux", "linux64"] %}
-                {% include "tc_update_verify.yml.tmpl" %}
-            {% else %}
-                {% include "bb_update_verify.yml.tmpl" %}
-            {% endif %}
+            {% include "tc_update_verify.yml.tmpl" %}
         {% endmacro %}
         {% for plat in en_US_config["platforms"].keys() %}
             {{ updateVerify_task(plat)|indent(4) }}
